@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: netpulse_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./netpulse.db
+      - HOST=0.0.0.0
+      - PORT=8000
+      - JWT_SECRET=netpulse-production-secure-jwt-key-2026
+      - AUTO_RESPONSE_ENABLED=true
+      - HIGH_RISK_THRESHOLD=61
+      - CRITICAL_RISK_THRESHOLD=81
+    volumes:
+      - ./data:/app/data
+      - ./ml/models:/app/ml/models
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: netpulse_frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend

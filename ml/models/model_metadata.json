@@ -1,0 +1,71 @@
+{
+  "model_name": "RandomForest_CICIoT2023_Classifier",
+  "algorithm": "RandomForestClassifier",
+  "dataset": "CICIoT2023 (Kaggle Benchmark Dataset)",
+  "dataset_source": "Kaggle / Canadian Institute for Cybersecurity (CIC)",
+  "features": [
+    "traffic_volume",
+    "packet_count",
+    "request_frequency",
+    "connection_frequency",
+    "failed_connections",
+    "protocol_num",
+    "destination_port",
+    "event_rate",
+    "historical_alerts_count"
+  ],
+  "classes": [
+    "Benign",
+    "Suspicious"
+  ],
+  "attack_categories": [
+    "Benign",
+    "DDoS",
+    "DoS",
+    "Recon",
+    "Web",
+    "BruteForce",
+    "Spoofing",
+    "Mirai"
+  ],
+  "attack_types_count": 33,
+  "attack_distribution": {
+    "Benign": 8250,
+    "DDoS": 2015,
+    "DoS": 1333,
+    "Recon": 1226,
+    "Mirai": 973,
+    "BruteForce": 558,
+    "Web": 366,
+    "Spoofing": 279
+  },
+  "trained_at": "2026-09-10T18:54:54.218582+00:00",
+  "samples_count": 15000,
+  "metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "confusion_matrix": [
+      [
+        2062,
+        0
+      ],
+      [
+        0,
+        1688
+      ]
+    ]
+  },
+  "feature_importances": {
+    "traffic_volume": 0.0735,
+    "packet_count": 0.142,
+    "request_frequency": 0.2338,
+    "connection_frequency": 0.2264,
+    "failed_connections": 0.0161,
+    "protocol_num": 0.0,
+    "destination_port": 0.0,
+    "event_rate": 0.2922,
+    "historical_alerts_count": 0.0159
+  }
+}
