@@ -1,4 +1,4 @@
-# NetPulse IoT: Network Security Monitoring, Threat Detection & Automated Response Platform
+# IDPS IoT: Network Security Monitoring, Threat Detection & Automated Response Platform
 
 > A professional, enterprise-grade IoT network security monitoring and automated response platform featuring **MANDATORY physical ESP32 microcontroller integration**, **Random Forest machine learning threat classification**, **multi-factor dynamic risk scoring (0–100)**, **transparent domain heuristic intelligence**, **manual and automated quarantine blocking with countdown expiry**, and a **real-time React + TypeScript dashboard**.
 
@@ -6,7 +6,7 @@
 
 ## 1. Project Overview
 
-**NetPulse IoT** delivers an end-to-end security pipeline specifically tailored for heterogeneous IoT environments (smart sensors, security cameras, smart plugs, industrial nodes, and physical ESP32 microcontrollers). 
+**IDPS IoT** delivers an end-to-end security pipeline specifically tailored for heterogeneous IoT environments (smart sensors, security cameras, smart plugs, industrial nodes, and physical ESP32 microcontrollers). 
 
 The platform continuously evaluates network flow volume, packet burst rates, request frequencies, connection failures, target ports, and contacted domains. Telemetry is streamed through a trained **Random Forest Classifier** and scored across multi-factor heuristics to automatically contain high-risk and critical anomalies in real time without human intervention.
 
@@ -103,7 +103,7 @@ Follow these exact commands to run the entire platform locally on one laptop.
 
 ### Step 1: Open Project Directory
 ```powershell
-cd C:\Users\muham\.gemini\antigravity-ide\scratch\netpulse-iot
+cd e:\project\idps-IoT
 ```
 
 ### Step 2: Install Backend Dependencies
@@ -113,7 +113,7 @@ python -m pip install -r backend/requirements.txt
 
 ### Step 3: Train / Validate the Random Forest Model
 ```powershell
-$env:PYTHONPATH="C:\Users\muham\.gemini\antigravity-ide\scratch\netpulse-iot"
+$env:PYTHONPATH="."
 python ml/training/train_model.py
 ```
 *(Note: If omitted, the backend will auto-train the model automatically on first boot!)*
@@ -126,7 +126,7 @@ python -m pytest tests -v
 
 ### Step 5: Start the FastAPI Backend Server
 ```powershell
-$env:PYTHONPATH="C:\Users\muham\.gemini\antigravity-ide\scratch\netpulse-iot"
+$env:PYTHONPATH="."
 python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 The backend is now live at:
@@ -136,7 +136,7 @@ The backend is now live at:
 ### Step 6: Start the React Frontend
 Open a new terminal window:
 ```powershell
-cd C:\Users\muham\.gemini\antigravity-ide\scratch\netpulse-iot\frontend
+cd frontend
 npm run dev
 ```
 Navigate to: **[http://localhost:5173](http://localhost:5173)** in your browser!
